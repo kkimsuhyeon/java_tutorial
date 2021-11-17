@@ -6,7 +6,7 @@ public class RandomUtils {
 
     private static final Random RANDOM = new Random();
 
-    private RandomUtils(){} // 싱글톤 방식을 위해서 생성할 수 없도록 막음
+    private RandomUtils(){}
 
     public static int nextInt(final int startInclusive, final int endInclusive){
         if(startInclusive > endInclusive){
@@ -21,7 +21,6 @@ public class RandomUtils {
             return startInclusive;
         }
 
-        return startInclusive + RANDOM.nextInt(endInclusive - startIncRandomUtils.javalusive + 1);
+        return startInclusive + RANDOM.nextInt(endInclusive - startInclusive + 1);
     }
-
 }
