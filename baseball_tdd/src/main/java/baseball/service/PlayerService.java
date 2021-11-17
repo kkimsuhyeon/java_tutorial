@@ -1,5 +1,7 @@
 package baseball.service;
 
+import baseball.view.InputView;
+
 import java.util.*;
 
 public class PlayerService {
@@ -11,7 +13,7 @@ public class PlayerService {
     }
 
     public List<Integer> scanPlayer(){
-        System.out.print("input :");
+        InputView.playerNumberScan();
         String numbers = scanner.nextLine();
         return parseInteger(numbers);
     }

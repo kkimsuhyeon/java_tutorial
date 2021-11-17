@@ -21,7 +21,7 @@ class PlayerServiceTest {
 
 
     @Test
-    @DisplayName("check length")
+    @DisplayName("입력값 체크 테스트")
     void testCheckLength(){
         assertThrows(IllegalArgumentException.class, () -> player.parseInteger("1234"));
         assertThrows(IllegalArgumentException.class, () -> player.parseInteger("12"));

@@ -24,10 +24,10 @@ class HintServiceTest {
     void testOnlyStrike(){
         HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(1,5,6)));
         assertEquals(Hint.getStrike(), 1);
-        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(9,2,8)));
-        assertEquals(Hint.getStrike(), 1);
-        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(1,5,6)));
-        assertEquals(Hint.getStrike(), 1);
+        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(1,2,8)));
+        assertEquals(Hint.getStrike(), 2);
+        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(1,2,3)));
+        assertEquals(Hint.getStrike(), 3);
     }
 
     @Test
@@ -35,8 +35,8 @@ class HintServiceTest {
     void testOnlyBall(){
         HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(9,8,1)));
         assertEquals(Hint.getBall(), 1);
-        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(9,8,2)));
-        assertEquals(Hint.getBall(), 1);
+        HintService.countHint(new ArrayList<Integer>(Arrays.asList(1,2,3)), new ArrayList<Integer>(Arrays.asList(3,8,2)));
+        assertEquals(Hint.getBall(), 2);
     }
 
     @Test

@@ -1,6 +1,7 @@
 package baseball.service;
 
 import baseball.domain.Hint;
+import baseball.view.OutputView;
 
 import java.util.List;
 
@@ -23,7 +24,9 @@ public class HintService {
                 }
             }
         }
+    }
 
-
+    public static void printHint(){
+        OutputView.printResult();
     }
 }
