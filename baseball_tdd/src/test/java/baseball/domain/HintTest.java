@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HintTest {
 
     @Test
-    @DisplayName("check initialize")
+    @DisplayName("Hint 초기화 확인")
     void testInitialize(){
         Hint.initializeHint();
         assertEquals(Hint.getBall(), 0);
@@ -16,7 +16,7 @@ class HintTest {
     }
 
     @Test
-    @DisplayName("check increase strike")
+    @DisplayName("스트라이크 늘어나는거 확인")
     void testIncreaseStrike(){
         Hint.initializeHint();
         Hint.addStrike();
@@ -25,7 +25,7 @@ class HintTest {
     }
 
     @Test
-    @DisplayName("check increase ball")
+    @DisplayName("볼 늘어나는거 확인")
     void testIncreaseBall(){
         Hint.initializeHint();
         Hint.addBall();

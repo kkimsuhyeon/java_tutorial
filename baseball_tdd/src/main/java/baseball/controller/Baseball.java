@@ -22,10 +22,11 @@ public class Baseball {
     public void gameStart(){
         program.initializeProgram();
 
-        while(HintService.getHint()[0] != 3){
-            List<Integer> playerNumber = player.scanPlayer();
-            HintService.countHint(program.getProgramNumber(), playerNumber);
+        while(true){
+            while(HintService.getHint()[0] != 3){
+                List<Integer> playerNumber = player.scanPlayer();
+                HintService.countHint(program.getProgramNumber(), playerNumber);
+            }
         }
-
     }
 }

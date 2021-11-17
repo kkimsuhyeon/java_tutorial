@@ -1,10 +1,12 @@
-package racingcar.domain;
+package racingcar.service;
 
+import racingcar.domain.Car;
 import racingcar.type.TextType;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Position {
+public class PositionService {
 
     public static StringBuffer drawPosition(Car car){
         StringBuffer carPosition = new StringBuffer();
@@ -16,8 +18,9 @@ public class Position {
         return carPosition;
     }
 
-    public static ArrayList<Integer> extractPosition(ArrayList<Car> cars){
-        ArrayList<Integer> carPositions = new ArrayList<>();
+    public static List<Integer> getPosition(List<Car> cars){
+
+        List<Integer> carPositions = new ArrayList<>();
 
         for(Car car: cars){
             carPositions.add(car.getPosition());
@@ -26,16 +29,15 @@ public class Position {
         return carPositions;
     }
 
-    public static int calculateMaxPosition(ArrayList<Integer> carPositions){
+    public static int getMaxPosition(List<Integer> carPositions){
         int maxPosition = 1;
 
-        for(int currentPosition: carPositions){
+        for(int currentPosition : carPositions){
             if(maxPosition <= currentPosition){
                 maxPosition = currentPosition;
             }
         }
 
         return maxPosition;
-
     }
 }

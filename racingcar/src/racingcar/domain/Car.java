@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import racingcar.type.BoundaryType;
+import racingcar.type.ErrorType;
+import racingcar.type.TextType;
 
 public class Car {
 
@@ -8,30 +10,36 @@ public class Car {
     private int position = 0;
 
     public Car(String name){
+        isValidCar(name);
         this.name = name;
     }
 
     public String getName(){
-        return this.name;
+        return name;
     }
 
     public int getPosition(){
         return position;
     }
 
-    public static void moveCar(Car car){
-        int randomNumber = RandomNumber.generateRandomNumber();
+    public void movePosition(){
+        position = position + 1;
+    }
 
-        if((BoundaryType.MINIMUM_MOVE_NUMBER.getBoundary() <= randomNumber) && (randomNumber <= BoundaryType.MAXIMUM_MOVE_NUMBER.getBoundary())){
-            car.movePosition();
-        }
+    public static void isValidCar(String carName){
+        isValidLength(carName);
+        isValidFormat(carName);
+    }
 
-        if((BoundaryType.MINIMUM_STOP_NUMBER.getBoundary() <= randomNumber) && (randomNumber <= BoundaryType.MAXIMUM_RANDOM_NUMBER.getBoundary())){
-            return;
+    public static void isValidLength(String carName){
+        if((carName.length() < BoundaryType.MINIMUM_CAR_NAME_LENGTH.getBoundary()) || carName.length() > BoundaryType.MAXIMUM_CAR_NAME_LENGTH.getBoundary()){
+            throw new IllegalArgumentException(ErrorType.INVALID_LENGTH.getError());
         }
     }
 
-    public void movePosition(){
-        position++;
+    public static void isValidFormat(String carName){
+        if(carName.contains(TextType.BLANK_TEXT.getText())){
+            throw new IllegalArgumentException(ErrorType.INVALID_CHARACTER.getError());
+        }
     }
 }
